@@ -17,4 +17,9 @@ public class Tests {
 		assertEquals("Hello World!", subject.getMessage(false));
 	}
 	
+	@Test
+	public void testTrueMessage() {
+		assertEquals("Hello Universe!", subject.getMessage(true));
+	}
+	
 }
