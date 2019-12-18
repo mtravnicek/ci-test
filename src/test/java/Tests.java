@@ -19,7 +19,7 @@ public class Tests {
 	
 	@Test
 	public void testTrueMessage() {
-		assertEquals("Hello Universe!", subject.getMessage(true));
+		subject.main(new String[]{"x"});
 	}
 	
 }
