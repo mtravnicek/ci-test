@@ -16,17 +16,15 @@ jobs:
     - name: Change wrapper permissions
       run: chmod +x ./gradlew
     - name: Build with Gradle
-      run: ./gradlew build
-    - name: Tree
-      run: tree -d ./
-    - name: ls
-      run: ls    
+      run: ./gradlew build  
+    - name: copy coverage report
+      run: cp ./build/reports/jacoco/test/* ./
     - name: Test & publish code coverage
       uses: paambaati/codeclimate-action@v2.3.0
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_TOKEN }}}
       with:
-        coverageCommand: ./gradlew jacocoTestReport; cp ./reports/jacoco/* ./
+        coverageCommand: ./gradlew jacocoTestReport
     - name: Upload coverage to Codecov  
       uses: codecov/codecov-action@master
       with:
