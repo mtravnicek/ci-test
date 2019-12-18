@@ -13,12 +13,17 @@ public class Tests {
 	}
 	
 	@Test
-	public void testGetMessage() {
+	public void testGetMessageFalse() {
 		assertEquals("Hello World!", subject.getMessage(false));
 	}
 	
 	@Test
-	public void testTrueMessage() {
+	public void testGetMessageTrue() {
+		assertEquals("Hello Universe!", subject.getMessage(true));
+	}	
+	
+	@Test
+	public void testMain() {
 		subject.main(new String[]{"x"});
 	}
 	
