@@ -22,7 +22,7 @@ jobs:
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_TOKEN }}}
       with:
-        coverageCommand: cp ./reports/jacoco/* ./
+        coverageCommand: ls;./gradlew jacocoTestReport;ls;cp ./reports/jacoco/* ./
     - name: Upload coverage to Codecov  
       uses: codecov/codecov-action@master
       with:
