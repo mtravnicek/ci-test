@@ -17,12 +17,16 @@ jobs:
       run: chmod +x ./gradlew
     - name: Build with Gradle
       run: ./gradlew build
+    - name: Tree
+      run: tree -d ./
+    - name: ls
+      run: ls    
     - name: Test & publish code coverage
       uses: paambaati/codeclimate-action@v2.3.0
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_TOKEN }}}
       with:
-        coverageCommand: ls;./gradlew jacocoTestReport;ls;cp ./reports/jacoco/* ./
+        coverageCommand: ./gradlew jacocoTestReport; cp ./reports/jacoco/* ./
     - name: Upload coverage to Codecov  
       uses: codecov/codecov-action@master
       with:
