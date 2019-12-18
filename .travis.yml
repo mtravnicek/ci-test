@@ -9,4 +9,6 @@ before_script:
 - chmod +x gradlew
 
 script:
-  - ./gradlew build --scan -s
+- ./gradlew build
+after_success:
+- ./gradlew test jacocoTestReport coveralls
